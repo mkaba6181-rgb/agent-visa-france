@@ -394,7 +394,7 @@ def main():
     with console.status(f"[{BLEU}]Mme Martin examine votre dossier...[/]", spinner="dots", spinner_style=BLEU):
         try:
             response = client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
+                model="llama-3.1-8b-instant",
                 messages=messages,
                 max_tokens=4096,
             )
@@ -435,7 +435,7 @@ def main():
         with console.status(f"[{BLEU}]Mme Martin rédige sa réponse...[/]", spinner="dots", spinner_style=BLEU):
             try:
                 response = client.chat.completions.create(
-                    model="llama-3.3-70b-versatile",
+                    model="llama-3.1-8b-instant",
                     messages=messages,
                     max_tokens=2048,
                 )

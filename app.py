@@ -236,7 +236,7 @@ if st.button("🔍 Analyser mon dossier", type="primary", disabled=not (uploaded
     with st.spinner("Mme Martin examine votre dossier..."):
         try:
             response = client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
+                model="llama-3.1-8b-instant",
                 messages=messages,
                 max_tokens=4096,
             )
@@ -271,7 +271,7 @@ if "messages" in st.session_state:
         with st.spinner("Mme Martin rédige sa réponse..."):
             try:
                 response = client.chat.completions.create(
-                    model="llama-3.3-70b-versatile",
+                    model="llama-3.1-8b-instant",
                     messages=st.session_state["messages"],
                     max_tokens=2048,
                 )
