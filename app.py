@@ -91,8 +91,8 @@ PROCÉDURE D'ANALYSE — 5 ÉTAPES OBLIGATOIRES :
 
 Ton : officiel, neutre, professionnel. Baser l'analyse UNIQUEMENT sur la liste officielle consulat 2026 ci-dessus. Ne pas inventer d'exigences supplémentaires non listées. Si document illisible/vide, le signaler. Simulation pédagogique — renvoyer vers france-visas.gouv.fr pour confirmation officielle."""
 
-MAX_CHARS_PAR_DOC = 800
-MAX_TOTAL_CHARS   = 8_000
+MAX_CHARS_PAR_DOC = 400
+MAX_TOTAL_CHARS   = 3_500
 
 # ─────────────────────────────────────────────────────────────────
 #  EXTRACTION DE TEXTE
@@ -236,7 +236,7 @@ if st.button("🔍 Analyser mon dossier", type="primary", disabled=not (uploaded
     with st.spinner("Mme Martin examine votre dossier..."):
         try:
             response = client.chat.completions.create(
-                model="llama-3.1-8b-instant",
+                model="gemma2-9b-it",
                 messages=messages,
                 max_tokens=4096,
             )
@@ -271,7 +271,7 @@ if "messages" in st.session_state:
         with st.spinner("Mme Martin rédige sa réponse..."):
             try:
                 response = client.chat.completions.create(
-                    model="llama-3.1-8b-instant",
+                    model="gemma2-9b-it",
                     messages=st.session_state["messages"],
                     max_tokens=2048,
                 )

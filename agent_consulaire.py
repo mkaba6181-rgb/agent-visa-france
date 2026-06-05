@@ -26,8 +26,8 @@ BLEU  = "#0055A4"
 ROUGE = "#EF4135"
 
 # ── Limites tokens pour tier gratuit Groq (12 000 TPM) ───────────────────────
-MAX_CHARS_PAR_DOC = 800
-MAX_TOTAL_CHARS   = 8_000
+MAX_CHARS_PAR_DOC = 400
+MAX_TOTAL_CHARS   = 3_500
 
 # ── Détection OCR (optionnel) ──────────────────────────────────────────────────
 OCR_DISPONIBLE = False
@@ -394,7 +394,7 @@ def main():
     with console.status(f"[{BLEU}]Mme Martin examine votre dossier...[/]", spinner="dots", spinner_style=BLEU):
         try:
             response = client.chat.completions.create(
-                model="llama-3.1-8b-instant",
+                model="gemma2-9b-it",
                 messages=messages,
                 max_tokens=4096,
             )
@@ -435,7 +435,7 @@ def main():
         with console.status(f"[{BLEU}]Mme Martin rédige sa réponse...[/]", spinner="dots", spinner_style=BLEU):
             try:
                 response = client.chat.completions.create(
-                    model="llama-3.1-8b-instant",
+                    model="gemma2-9b-it",
                     messages=messages,
                     max_tokens=2048,
                 )
